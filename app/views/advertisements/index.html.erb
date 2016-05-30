@@ -1,47 +1,82 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Advertisements</h1>
+<main>    
 
-<table>
+<div class="container-fluid">
+    <div class="row">
+ <div class="col m12 s12">
+<div   class="card grey lighten-4">
+<div class="card-content">
+   
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+ -->
+  <h1  class=" highlight centered bordered" style="color:#E91E63; ">Advertisements</h1>
+
+<style>
+    #addd {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  
+
+        
+<table class="highlight centered bordered">
   <thead>
     <tr>
-      <th>Profile</th>
-      <th>Name</th>
-      <th>Atype</th>
-      <th>Cost</th>
-      <th>Acost</th>
-      <th>Bcost</th>
-      <th>Active</th>
-      <th>Balance</th>
-      <th>Date</th>
-      <th>Due</th>
-      <th>Howmany</th>
+      <th data-field="id" >Profile</th>
+      <th data-field="id" >Name</th>
+      <th data-field="id" >Atype</th>
+      <th data-field="id" >Cost</th>
+      <th data-field="id" >Acost</th>
+      <th data-field="id" >Bcost</th>
+      <th data-field="id" >Active</th>
+      <th data-field="id" >Balance</th>
+      <th data-field="id" >Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @advertisements.each do |advertisement| %>
+    <%@advertisements.each do |advertisement| %>
+
+    <a href="<%=advertisement%>">
+            
       <tr>
-        <td><%= advertisement.profile %></td>
-        <td><%= advertisement.name %></td>
-        <td><%= advertisement.atype %></td>
-        <td><%= advertisement.cost %></td>
-        <td><%= advertisement.acost %></td>
-        <td><%= advertisement.bcost %></td>
-        <td><%= advertisement.active %></td>
-        <td><%= advertisement.balance %></td>
-        <td><%= advertisement.date %></td>
-        <td><%= advertisement.due %></td>
-        <td><%= advertisement.howmany %></td>
-        <td><%= link_to 'Show', advertisement %></td>
-        <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
-        <td><%= link_to 'Destroy', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              
+
+                  <td><%= advertisement.profile.name %></td>
+                  <td><%= advertisement.name %></td>
+                  <td><%= advertisement.atype %></td>
+                  <td><%= advertisement.cost %></td>
+                  <td><%= advertisement.acost %></td>
+                  <td><%= advertisement.bcost %></td>
+                  <td><%= advertisement.active %></td>
+                  <td><%= advertisement.balance %></td>
+                  <td><%= advertisement.date %></td>
+                  <td><%= link_to 'Show', advertisement %></td>
+                  <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
+                  <td><%= link_to 'Destroy', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            
       </tr>
+    </a>  
     <% end %>
   </tbody>
+ 
 </table>
 
-<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+            
+<a id="addd" href="<%=new_advertisement_path %>"class="btn-floating  waves-effect waves-light "><i class="material-icons" > add</i></a>
 
-<%= link_to 'New Advertisement', new_advertisement_path %>
+</main>

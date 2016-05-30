@@ -1,5 +1,52 @@
-<h1>New Profile</h1>
+      <main>
 
-<%= render 'form' %>
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col m12 s12">
 
-<%= link_to 'Back', profiles_path %>
+        <div class="card grey lighten-4">
+            <div class="card-content">
+<%= form_for(@profile) do |f| %>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" type="text" name="profile[name]"class="validate">
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cname" type="text" name="profile[cname]" class="validate">
+          <label for="cname">Company Name</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="num" name="profile[mob]" class="validate">
+          <label for="num">Mobile</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea  name="profile[addr]"id="address" class="materialize-textarea"></textarea>
+          <label for="address">Address</label>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+           <button class="btn waves-effect waves-light right" type="submit" name="action">Add Customer
+  </button>
+      </div>
+        <%end%>           
+           
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+        
+    </main>

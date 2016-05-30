@@ -1,0 +1,114 @@
+body{
+    background-color: #2c3e50;
+}
+
+main, footer {padding-left: 260px;} 
+@media only screen and (max-width: 992px){main, footer {padding-left: 0;}}
+
+.wrapper{
+    padding: 40px 0px;
+}
+
+h1{
+    color:white;
+}
+
+.flist{
+    list-style: none;
+    text-align: center;
+    
+}
+
+.flist li{
+    display: inline;
+}
+
+@media only screen and (max-width: 702px){
+    .flist li{
+    display: inline;
+        margin: 0px -21px;
+}
+}
+
+.btn-flat{
+    color: #7f8c8d;    
+}
+
+.padt{
+    padding-top: 20px;
+}
+
+.logtitle{
+    padding-bottom: 20px;
+}
+
+.keepme{
+    padding-left: 10px;
+}
+
+
+
+
+
+/*SIDEBAR*/
+
+nav .brand-logo {
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 992px){
+nav .brand-logo {
+    left: 30%;
+font-size: 1.2rem;
+    }}
+
+.logopad{margin-left: 30px;}
+
+@media only screen and (max-width: 992px){.logopad{margin-left: 2px; font-size: 16px;}}
+
+.navbar-fixed{
+    z-index: 1000;
+}
+
+.navmar{margin-top: 65px;}
+
+nav{background-color: #34495e;}
+
+.searchnav{background-color: #eeeeee; margin: 20px 0px;}
+
+.btn{background-color: #009688;}
+
+#nav-mobile{background-color: #ecf0f1;}
+
+.sideactive{color: #009688 !important; border-left: 3px solid #009688;}
+
+.sideactive li{padding-left: 16px !important;}
+
+.sidebut{margin-left: 15px;}
+
+
+.info{
+    font-size: 16px;
+    text-align: left;
+    color: white;
+}
+
+.side-link{font-size: 16px;}
+
+.side-nav li{
+    text-align: left;
+    line-height: 55px;
+    padding-left: 20px;
+}
+
+i{vertical-align: middle;}
+
+.side-nav li i{padding-right: 15px; display: none;}
+
+.side-nav.fixed a{padding: 0px;}
+
+.side-nav a{
+    font-size: 16px;
+    line-height: 55px;
+    height: 55px;
+}

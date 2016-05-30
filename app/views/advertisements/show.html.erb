@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<main>
+  
+  <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Profile:</strong>
@@ -45,15 +47,7 @@
   <%= @advertisement.date %>
 </p>
 
-<p>
-  <strong>Due:</strong>
-  <%= @advertisement.due %>
-</p>
-
-<p>
-  <strong>Howmany:</strong>
-  <%= @advertisement.howmany %>
-</p>
-
 <%= link_to 'Edit', edit_advertisement_path(@advertisement) %> |
 <%= link_to 'Back', advertisements_path %>
+
+</main>

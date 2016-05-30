@@ -1,14 +1,111 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Priya</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+<% if user_signed_in? %>
+<!-- 
+###########################After login Goes Here########################## -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Home | Priya TV</title>
+
+    <link href="/assets/css/materialize.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/fonts/roboto/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%@menu='home'%>
 </head>
 <body>
+   <header>
+   <div class="navbar-fixed">
+    <nav  class="top-nav">
+      <div class="nav-wrapper">
+              <a class="brand-logo logopad">Priya TV - <%=is_nameit()%>  </a>
+               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right "><li><%= link_to('Logout', destroy_user_session_path, :method => :delete,:class=>"waves-effect waves-light btn") %></li></ul>
+      
+      </div>
+    </nav>
+  </div>
+        
+      <ul id="mobile-demo" class="side-nav fixed">
+
+          <div class="navmar">
+          <a class="<%=is_active(ad_home_path)%>" href="<%=ad_home_path%>" >
+          <li class="side-link"><i class="material-icons">home</i>Home</li></a>
+          
+          <a href="<%=profiles_path%>">
+          <li class="<%=is_active(profiles_path)%>"><i class="material-icons">supervisor_account</i>Customer</li></a>
+          
+          <a href="<%=advertisements_path%>">
+          <li class="<%=is_active(advertisements_path)%>"><i class="material-icons">list</i>Advertisement</li></a>
+
+</div>
+      </ul>
+</header>
 
 <%= yield %>
+<!-- 
+###############################Footer############################################# -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="flist">
+                        <li class="li"><a href="#" class="waves-effect waves-teal btn-flat">About Us</a></li>
+                        <li class="li"><a href="#" class="waves-effect waves-teal btn-flat">Privacy</a></li>
+                        <li class="li"><a href="#" class="waves-effect waves-teal btn-flat">Terms</a></li>
+                        <li class="li"><a href="#" class="waves-effect waves-teal btn-flat">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
+ 
+<script type="text/javascript">
+        
+    $('.button-collapse').sideNav({
+      menuWidth: 260, 
+      edge: 'left'
+    });
+        
+        $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false 
+    });
+  });
+        
+        $(document).ready(function() {
+    $('select').material_select();
+  });
+      </script>
+
+<!-- 
+###############################Footer############################################# -->
+
+
+
 
 </body>
 </html>
+
+<!-- 
+#####################Before Login Goes here ################################# -->
+<%else%>
+
+
+	<%=yield%>
+	
+<%end%>
+
+

@@ -5,16 +5,19 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    @menu="Customer"
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @menu="Customer"
   end
 
   # GET /profiles/new
   def new
     @profile = Profile.new
+    @menu="Add Customer"
   end
 
   # GET /profiles/1/edit

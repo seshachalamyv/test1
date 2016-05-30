@@ -5,6 +5,7 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements.json
   def index
     @advertisements = Advertisement.all
+    @menu="Advertisements"
   end
 
   # GET /advertisements/1
@@ -15,6 +16,7 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/new
   def new
     @advertisement = Advertisement.new
+    @menu="Add Advertisement"
   end
 
   # GET /advertisements/1/edit
@@ -24,8 +26,20 @@ class AdvertisementsController < ApplicationController
   # POST /advertisements
   # POST /advertisements.json
   def create
-    @advertisement = Advertisement.new(advertisement_params)
+  @advertisement = Advertisement.new(advertisement_params)
+    if(@advertisement[:acost].to_i==@advertisement[:cost].to_i)
+      @advertisement[:bcost]=0
+      @advertisement[:balance]=false
+      @advertisement[:active]=true
+      puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    else 
 
+      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+      @advertisement[:bcost]=(@advertisement[:cost].to_i-@advertisement[:acost].to_i)
+      @advertisement[:balance]=true
+      @advertisement[:active]=true
+    
+     end
     respond_to do |format|
       if @advertisement.save
         format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
@@ -33,7 +47,7 @@ class AdvertisementsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @advertisement.errors, status: :unprocessable_entity }
-      end
+        end
     end
   end
 
@@ -69,6 +83,6 @@ class AdvertisementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertisement_params
-      params.require(:advertisement).permit(:profile_id, :name, :atype, :cost, :acost, :bcost, :active, :balance, :date, :due, :howmany)
+      params.require(:advertisement).permit(:profile_id, :name, :atype, :cost, :acost, :bcost, :active, :balance, :date)
     end
 end

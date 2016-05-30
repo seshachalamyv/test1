@@ -1,0 +1,137 @@
+
+<script type="text/javascript">
+  var app=angular.module('ad',[])
+app.controller('m', function($scope) {
+
+  $scope.s=<%=@ads.to_json.html_safe%>; 
+  
+
+});
+
+</script>
+       
+
+      <main ng-app="ad" ng-controller="m">
+
+
+
+
+
+
+
+<div class="container-fluid" >
+    <div class="row">
+    <div class="col m12 s12">
+
+
+
+        <div class="card grey lighten-4">
+            <div class="card-content">
+    
+               <div class="row">
+                  <div class="col m3 s3">
+                    <input id="search" type="text" placeholder="Search" ng-model="se" required>
+                  </div>
+
+                  <div class="col m3 s3">
+                                <br><br><div class="switch"><label><input id="l"type="checkbox" ng-false-value=""ng-true-value="<%=Time.now.strftime("%d ")%>" ng-model="ss.date" checked><span class="lever"></span></label>
+                          <label for="l"> Today</label>
+                  </div>
+              
+                 
+               </div> 
+    <div class="row">
+
+                  <div class="input-field col m6 s6">
+          <input id="tcost" type="date" name="advertisement[date]" ng-model="hh.date" >
+
+          <label for="tcost"></label>
+<h1 style="color:red;">{{hh.date|date}}</h1>
+
+          
+        </div>                    
+
+
+                  </div>
+  
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+    <div class="container-fluid" >
+    <div class="row">
+    <div class="col m12 s12">
+
+        <div class="card grey lighten-4">
+            <div class="card-content">
+              <div class="row">
+                  
+
+
+                
+              </div>
+        <table class="highlight centered bordered">
+        <thead>
+          <tr>
+              <th data-field="id">Name <br><br></th>
+              <th data-field="id">Type 
+                        <br><br><div class="switch"><label><input type="checkbox" ng-false-value="Roller" ng-true-value="Video" ng-model="ss.atype" checked><span class="lever"></span></label></div>
+              </th>
+              <th data-field="id">Active
+                <br><br><div class="switch"><label><input type="checkbox" ng-model="ss.active" checked><span class="lever"></span></label></div>
+              </th>
+              <th data-field="id">Balance
+                    <br><br><div class="switch"><label><input type="checkbox" ng-model="ss.balance" checked><span class="lever"></span></label></div>
+              </th>
+
+
+          </tr>
+        </thead>
+
+        <tbody>
+          
+        
+          <tr ng-repeat="i in s |filter:se | filter:ss">
+            <td><a href="/advertisements/{{i.id}}">{{i.name}}</a></td>
+            
+            <td></td>
+            <td>
+            <div class="switch"><label><input type="checkbox" checked><span class="lever"></span></label></div>
+            </td>
+            <td>
+            <div class="switch"><label><input type="checkbox" value=""checked><span class="lever"></span></label></div>
+            </td>
+            
+          </tr>
+        
+        </tbody>
+      </table>
+           
+           
+           
+           
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+<script type="text/javascript">
+  $('.datepicker').pickadate({
+    selectMonth:true
+  });
+</script>
+        
+    </main>
+      
+       
+        
