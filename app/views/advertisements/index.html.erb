@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Advertisements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile</th>
+      <th>Name</th>
+      <th>Atype</th>
+      <th>Cost</th>
+      <th>Acost</th>
+      <th>Bcost</th>
+      <th>Active</th>
+      <th>Balance</th>
+      <th>Date</th>
+      <th>Due</th>
+      <th>Howmany</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @advertisements.each do |advertisement| %>
+      <tr>
+        <td><%= advertisement.profile %></td>
+        <td><%= advertisement.name %></td>
+        <td><%= advertisement.atype %></td>
+        <td><%= advertisement.cost %></td>
+        <td><%= advertisement.acost %></td>
+        <td><%= advertisement.bcost %></td>
+        <td><%= advertisement.active %></td>
+        <td><%= advertisement.balance %></td>
+        <td><%= advertisement.date %></td>
+        <td><%= advertisement.due %></td>
+        <td><%= advertisement.howmany %></td>
+        <td><%= link_to 'Show', advertisement %></td>
+        <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
+        <td><%= link_to 'Destroy', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advertisement', new_advertisement_path %>
