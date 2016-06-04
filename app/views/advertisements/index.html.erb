@@ -1,9 +1,17 @@
+<script type="text/javascript">
+  $("tr[data-link]").click(function() {
+  window.location = this.data("link")
+})
 
+</script>
 <main>    
 
+
 <div class="container-fluid">
-    <div class="row">
- <div class="col m12 s12">
+
+<div class="row">
+<h3  class=" highlight centered bordered" style="color:white;">Advertisements</h3>
+<div class="col m12 s12">
 <div   class="card grey lighten-4">
 <div class="card-content">
    
@@ -11,34 +19,17 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
  -->
-  <h1  class=" highlight centered bordered" style="color:#E91E63; ">Advertisements</h1>
-
-<style>
-    #addd {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
   
+
 
         
 <table class="highlight centered bordered">
   <thead>
     <tr>
-      <th data-field="id" >Profile</th>
-      <th data-field="id" >Name</th>
-      <th data-field="id" >Atype</th>
-      <th data-field="id" >Cost</th>
-      <th data-field="id" >Acost</th>
-      <th data-field="id" >Bcost</th>
-      <th data-field="id" >Active</th>
-      <th data-field="id" >Balance</th>
-      <th data-field="id" >Date</th>
+      <th  >Profile</th>
+      <th >Name</th>
+      <th >Atype</th>
+      <th >Cost</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -46,23 +37,14 @@
   <tbody>
     <%@advertisements.each do |advertisement| %>
 
-    <a href="<%=advertisement%>">
             
-      <tr>
+      <tr onclick="location.href='<%=advertisement_path(advertisement)%>'">
               
 
                   <td><%= advertisement.profile.name %></td>
                   <td><%= advertisement.name %></td>
                   <td><%= advertisement.atype %></td>
                   <td><%= advertisement.cost %></td>
-                  <td><%= advertisement.acost %></td>
-                  <td><%= advertisement.bcost %></td>
-                  <td><%= advertisement.active %></td>
-                  <td><%= advertisement.balance %></td>
-                  <td><%= advertisement.date %></td>
-                  <td><%= link_to 'Show', advertisement %></td>
-                  <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
-                  <td><%= link_to 'Destroy', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             
       </tr>
     </a>  
@@ -75,8 +57,29 @@
 </div>
 </div>
 </div>
+
+<div class="row">
+  <div class="col offset-s9">
+          
+<!-- <a id="addd" class="btn-floating  waves-effect waves-light "><i class="material-icons" > add</i></a>
+ --><a  href="<%=new_advertisement_path %>" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+  </div>
+
+</div>
+</div>
+
 </div>
             
-<a id="addd" href="<%=new_advertisement_path %>"class="btn-floating  waves-effect waves-light "><i class="material-icons" > add</i></a>
 
 </main>
+<script type="text/javascript">
+  $(document).on("click", "#table-id tr", function() {
+  var link  = $(this).data("href")
+  $.ajax({
+    url: link,
+    type: "GET"
+  });
+});
+
+</script>

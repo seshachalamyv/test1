@@ -1,29 +1,93 @@
-<main>
-	
-<p id="notice"><%= notice %></p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+          
+<script type="text/javascript">
+  
+ $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
 
-<p>
-  <strong>Cname:</strong>
-  <%= @profile.cname %>
-</p>
+$('#modal1').openModal({ dismissible: false });  });
+    
+</script>
 
-<p>
-  <strong>Addr:</strong>
-  <%= @profile.addr %>
-</p>
 
-<p>
-  <strong>Mob:</strong>
-  <%= @profile.mob %>
-</p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
 
-	
-</main>
+
+
+      <main>
+
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col m12 s12">
+
+
+
+
+ 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+<a href="<%=profiles_path%>"  class="btn-flat disabled right"><i class="material-icons">close</i></a>
+
+      <div class="modal-title">
+      
+      </div>
+      <div class="row">
+        
+        <table class="highlight">
+           <tbody>
+          <tr>
+            <td class="header">Name</td>
+            <td><b><%=@profile.name.capitalize%></b></td>
+            
+          </tr>
+          <tr>
+            <td class="header">Company </td>
+            <td><b><%=@profile.cname.capitalize%></b></td>
+            
+          </tr>
+          <tr>
+            <td class="header">Address</td>
+            <td><b><%=@profile.addr.capitalize%></b></td>
+            
+          </tr>
+         <tr>
+            <td class="header">Mobile</td>
+            <td><b><%=@profile.mob.capitalize%></b></td>
+            
+          </tr>
+       
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+
+
+<div class="row right ">
+
+<div class="col">
+      <%= link_to 'Edit', edit_profiles_path(@profile) ,class: "btn btn-inverse green"%> 
+
+</div>  
+
+<div class="col">
+  <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-inverse red" %>
+
+</div>
+
+</div>
+
+
+    </div>
+  </div>
+            
+            
+           
+           
+    </div>
+    </div>
+    </div>
+        
+    </main>
+

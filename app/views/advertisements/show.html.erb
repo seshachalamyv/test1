@@ -1,53 +1,128 @@
-<main>
-  
-  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @advertisement.profile %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @advertisement.name %>
-</p>
-
-<p>
-  <strong>Atype:</strong>
-  <%= @advertisement.atype %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @advertisement.cost %>
-</p>
-
-<p>
-  <strong>Acost:</strong>
-  <%= @advertisement.acost %>
-</p>
-
-<p>
-  <strong>Bcost:</strong>
-  <%= @advertisement.bcost %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @advertisement.active %>
-</p>
-
-<p>
-  <strong>Balance:</strong>
-  <%= @advertisement.balance %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @advertisement.date %>
-</p>
-
-<%= link_to 'Edit', edit_advertisement_path(@advertisement) %> |
-<%= link_to 'Back', advertisements_path %>
 
 </main>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+          
+<style type="text/css">
+/*.modal { width: 75% !important ; max-height: 100% !important }
+*/  
+.modal { width: 75% !important ; max-height: 100% !important ; overflow-y: hidden !important ;}  /* increase the width, height and prevent vertical scroll! However, i don't recommend this, its better to turn on vertical scrolling. */
+</style>
+<script type="text/javascript">
+  
+ $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
+
+$('#modal1').openModal({ dismissible: false }); 
+
+ });
+    
+</script>
+
+
+
+
+
+
+      <main>
+
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col m12 s12 lg12">
+
+
+
+
+ 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal" class="col lg12">
+    <div class="modal-content">
+<a href="<%=advertisements_path%>"  class="btn-flat disabled right"><i class="material-icons">close</i></a>
+      <div class="modal-title">
+      </div>
+      <div class="row">
+        
+        <table class="highlight">
+           <tbody>
+          <tr>
+            <td class="header">Customer Name</td>
+            <td><b><%= @advertisement.profile.name.capitalize%></b></td>
+            
+          </tr>
+          <tr>
+            <td class="header">Company </td>
+            <td><b><%= @advertisement.profile.cname.capitalize%></b></td>
+            
+          </tr>
+          <tr>
+            <td class="header">Advertisement Name </td>
+            <td><b><%=@advertisement.name%></b></td>
+            
+          </tr>
+         <tr>
+            <td class="header">Type</td>
+            <td><b><%=@advertisement.atype.capitalize%></b></td>
+            
+          </tr>
+       <tr>
+            <td class="header">Cost</td>
+            <td><b><%=@advertisement.cost%></b></td>
+            
+          </tr>
+       <tr>
+            <td class="header">Advance</td>
+            <td><b><%=@advertisement.acost%></b></td>
+            
+          </tr>
+        <tr>
+            <td class="header">Balance</td>
+            <td><b><%=@advertisement.bcost%></b></td>
+            
+          </tr>
+      
+
+        </table>
+      
+      </div>
+    </div>
+    <div class="modal-footer">
+
+
+
+      
+<div class="row right ">
+
+<div class="col">
+      <%= link_to 'Edit', edit_advertisement_path(@advertisement) ,class: "btn btn-inverse green"%> 
+
+</div>  
+
+<div class="col">
+  <%= link_to 'Destroy', @advertisement, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-inverse red" %>
+
+</div>
+
+</div>
+    </div>
+  </div>
+            
+            
+           
+           
+    </div>
+    </div>
+
+
+    </div>
+        
+    </main>
+
+
+
+
