@@ -1,6 +1,26 @@
-<h1>Editing Advertisement</h1>
 
+<script type="text/javascript">
+  
+ $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
+
+$('#modal1').openModal({ dismissible: false }); 
+
+ });
+</script>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+<div class="modal-title">
+	Editing Advertisement
+</div>
 <%= render 'form' %>
-
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+          
 <%= link_to 'Show', @advertisement %> |
 <%= link_to 'Back', advertisements_path %>
